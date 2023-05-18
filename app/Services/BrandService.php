@@ -32,4 +32,10 @@ class BrandService
             'products' => $products
         ];
     }
+
+    public function home()
+    {
+        $brands = StoreProducer::inRandomOrder()->take(4)->get();
+        return $brands;
+    }
 }

@@ -11,6 +11,6 @@
     </x-page-header>
     @include('homepage.sevice')
     @include('homepage.aboute')
-    @include('homepage.contactform')
+    @include('forms.contactform')
     <x-footer></x-footer>
 @endsection

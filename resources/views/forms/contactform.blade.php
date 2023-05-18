@@ -7,10 +7,11 @@
             <br>you,they will support you 24/7.</div>
         <div class="contact-form mf-contact-form-7 form-light">
 
-            <form id="contact-form" method="post" action="inc/contact.php" role="form" class="wpcf7-form" novalidate="true">
+            <form id="contact-form" method="post" action="/mail" role="form" class="wpcf7-form" novalidate="true">
                 <div class="messages"></div>
                 <div class="controls mf-form mf-form-2">
                     <div class="row">
+                        @csrf
                         <div class="col-md-6 col-xs-12 col-sm-12 mf-input-field">
                             <div class="form-group">
                                 <input type="text" name="name" size="40" placeholder="Your Name*" required="">

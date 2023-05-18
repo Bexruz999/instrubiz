@@ -4,6 +4,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
@@ -20,10 +21,18 @@ use TCG\Voyager\Facades\Voyager;
 
 //Test routes
 
+Route::get('/test', [MailController::class, 'test']);
 
 Route::domain('{domain}.' . env('APP_URL'))->group(function () {
+
+
+
+
     //Home routes
     Route::get('/', [HomeController::class, 'index'])->name('Home');
+
+    //MAil routes
+    Route::post('/mail', [MailController::class, 'send'])->name('Mail');
 
     //Brands routes
     Route::get('/store/brands', [BrandController::class, 'index'])->name('Brands');
