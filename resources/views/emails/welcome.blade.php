@@ -12,7 +12,8 @@
     Name: {{ $name }} <br />
     Email: {{ $email }} <br />
     Message: {{ $txt }}<br />
-    Message: {{ $phone }}
+    Message: {{ $phone }} <br />
+    Country: {{ $country }} <br />
 </p>
 </body>
 </html>

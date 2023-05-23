@@ -10,12 +10,12 @@
                         <div class="col-xs-12 col-md-6 col-sm-6">
                             <div class="mf-services-2 icon_type-fontawesome style-4 ">
                                 <div class="service-thumbnail text-center">
-                                    <a href="https://instrubiz.ae/store/brand/3m" class="">
+                                    <a href="/store/brand/{{ $brand->slug }}" class="">
                                         <div class="brand-logo" style="background-image: url('{{ $brand->image }}');"></div>
                                     </a>
                                 </div>
                                 <div class="service-summary">
-                                    <h4><a href="" title="" target=" _blank">{{ $brand->name }}</a></h4>
+                                    <h4><a href="/store/brand/{{ $brand->slug }}" title="{{ $brand->slug }}" target=" _blank">{{ $brand->name }}</a></h4>
                                     <div class="service-desc"> in {{ $country->name }}</div>
                                 </div>
                             </div>

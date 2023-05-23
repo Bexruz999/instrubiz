@@ -378,7 +378,6 @@
 --------------------------------------------------------------*/
 
 	body {
-	    color: #000000;
 	    font-size: 18px;
 	    font-family: 'Hind', sans-serif;
 	    font-family: 'Hind Vadodara', sans-serif;
@@ -871,6 +870,22 @@
    Header
 --------------------------------------------------------------*/
 
+    .home {
+        z-index: 1000;
+        position: relative;
+    }
+
+    .header-content p{
+        color: #f7c02d;
+        font-weight: 900;
+        font-size: 24px;
+    }
+
+    .alphapager {
+        margin-bottom: 55px;
+        padding: 0 4px;
+    }
+
 	.site-header {
 	    background-color: #fff;
 	    position: relative;
@@ -1154,6 +1169,10 @@
 
 	.site-extra-text .header-contact div {
 	    padding-right: 15px;
+	}
+
+	.site-extra-text .header-contact a {
+	    color: #000;
 	}
 
 	.site-extra-text .header-contact h5 {
@@ -6042,6 +6061,10 @@
 
 	.woocommerce ul.products li.product h4 a {
 	    color: #393939;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
 	}
 
 	.woocommerce ul.products li.product .price {
@@ -9725,7 +9748,7 @@
 	}
 
 	.footer-widgets {
-	    background-color: #ffffff;
+	    background-color: #0b0b0b;
 	    padding-top: 70px;
 	    padding-bottom: 80px;
 	    position: relative;
@@ -9737,7 +9760,7 @@
 	    margin: 0;
 	    padding-bottom: 15px;
 	    position: relative;
-	    color: #000000;
+	    color: #ffffff;
 	    margin-bottom: 40px;
 	    font-weight: 300;
 	}
@@ -9767,7 +9790,9 @@
 	}
 
 	.footer-widgets ul {
-	    border: none;
+        border-color: #181818 !important;
+        border-width: 0 0 0 1px;
+        border-style: solid;
 	    padding: 0;
 	    margin: 0;
 	}
@@ -9797,6 +9822,10 @@
 	.footer-widgets ul li:hover > a {
 	    color: #f7c02d;
 	}
+
+    .footer-widgets ul li > a {
+        color: #ffffff;
+    }
 
 	.footer-widgets ul ul {
 	    border-top: 0;
@@ -9835,10 +9864,13 @@
 
 	.footer-widgets .footer-widget-contact .detail span {
 	    font-size: 14px;
-	    color: #000000;
 	    font-weight: 500;
 	    text-transform: uppercase;
 	}
+
+    .footer-widgets .footer-widget-contact a{
+        color: #ffffff
+    }
 
 	.footer-social a {
 	    display: inline-block;
@@ -9868,6 +9900,11 @@
 	    background-color: #f7c02d;
 	    color: #252525;
 	}
+
+    .textwidget {
+        color: #ffffff;
+    }
+
 	/*--------------------------------------------------------------
    Page Header
 --------------------------------------------------------------*/
@@ -9917,9 +9954,12 @@
 	}
 
 	.page-header .page-header-content {
-	    padding-top: 140px;
-	    padding-bottom: 120px;
 	    position: relative;
+	    height: 100%;
+        align-items: center;
+        display: flex;
+        background-repeat: no-repeat;
+        background-size: cover;
 	}
 
 	.page-header .featured-image {
@@ -9959,6 +9999,9 @@
 
 	.page-header.has-image {
 	    background-color: transparent;
+        height: 85vh;
+        margin-top: -142.5px;
+        padding-top: 142.5px;
 	}
 
 	.page-header.has-image h1 {
@@ -9984,6 +10027,39 @@
 	    background-color: rgba(247, 192, 45, 0.75) !important;
 	    position: relative;
 	}
+
+	.search_404 {
+        display: flex;
+        min-width: 50%;
+        width: 50%;
+        margin: 0 auto;
+	}
+
+    #slider {
+        padding: 0 15px;
+    }
+
+    .slick-next, .slick-prev {
+        top: 0;
+        bottom: 0;
+        border: none;
+        background: transparent;
+    }
+
+    .slick-next:hover, .slick-prev:hover,
+    .slick-next:focus, .slick-prev:focus {
+        background: transparent;
+    }
+
+    .slick-next {
+        position: absolute;
+        right: 0;
+    }
+    .slick-prev {
+        position: absolute;
+        left: 0;
+    }
+
 	/***
 
 ====================================================================
@@ -10808,9 +10884,14 @@
 	}
 
 	.service-dtail p {
+        font-size: 16px;
 	    margin-bottom: 30px;
-		height: 76px;
-		overflow: hidden;
+	    font-weight: 500;
+		height: 130px;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
 	}
 
 	.brand-logo{
@@ -10994,3 +11075,113 @@
 		padding: 10px;color: #ffffff;
 		border-radius:5px
 	}
+
+    .callBack {
+        position: fixed;
+        bottom: 110px;
+        right: 25px;
+        z-index: 999;
+    }
+
+    .callBack__body {
+        position: relative;
+    }
+
+    .callBack__icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        transition: 1.3 ease-in-out;
+    }
+
+    .callBack__icon:hover {
+        transform: scale(1.1);
+    }
+
+    .callBack__icon::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border: 1px solid #FF782D;
+        border-radius: 50%;
+        animation: pulse 1.1s linear infinite;
+    }
+
+    .callBack__icon::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border: 1px solid #FF782D;
+        border-radius: 50%;
+        animation: pulse 2.1s linear infinite;
+    }
+
+    .callBack__body img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    .callBack__phone,
+    .callBack__whatsApp,
+    .callBack__mail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        z-index: 0;
+        margin: 10px;
+        cursor: pointer;
+        z-index: -1;
+        transition: all .8s ease;
+        display: block;
+    }
+
+    .callBack__phone:hover,
+    .callBack__whatsApp:hover,
+    .callBack__mail:hover {
+        width: 35px;
+        height: 35px;
+    }
+
+    .callBack__phone.active {
+        transform: translateY(-70px)
+    }
+
+    .callBack__whatsApp.active {
+        transform: translateY(-120px)
+    }
+
+    .callBack__mail.active {
+        transform: translateY(-170px)
+    }
+
+
+    @keyframes pulse {
+        0% {
+            transform: translate(-50%, -50%) scale(.7);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(1.5);
+            opacity: 0;
+        }
+    }

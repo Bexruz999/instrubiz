@@ -14,15 +14,15 @@
                         @csrf
                         <div class="col-md-6 col-xs-12 col-sm-12 mf-input-field">
                             <div class="form-group">
-                                <input type="text" name="name" size="40" placeholder="Your Name*" required="">
+                                <input id="name2" type="text" name="name" size="40" placeholder="Your Name*" required="">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" size="40" placeholder="Email Address*" required="">
+                                <input id="email2" type="email" name="email" size="40" placeholder="Email Address*" required="">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="phone" size="40" placeholder="Phone Number" required="">
+                                <input id="phone2" type="text" name="phone" size="40" placeholder="Phone Number" required="">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>

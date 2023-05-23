@@ -1,2 +1,20 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /vendor/
+Disallow: /public/
+Disallow: /storage/
+Disallow: /resources/
+Disallow: /bootstrap/
+Disallow: /config/
+Disallow: /database/
+Disallow: /routes/
+Disallow: /tests/
+Disallow: /app/
+Disallow: /artisan
+Disallow: *?page=*
+Disallow: *?q=*
+
+Sitemap: https://instrubiz.ae/sitemap.xml

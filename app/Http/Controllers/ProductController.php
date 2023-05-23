@@ -7,6 +7,7 @@ use App\Models\StoreProduct;
 use App\Services\ProductService;
 use App\Services\SearchService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class ProductController extends Controller
 {
@@ -20,31 +21,45 @@ class ProductController extends Controller
         $this->productService = $productService;
     }
 
+
     public function search(Request $request, $domain = 'ae')
     {
         $query = $request->get('q');
         $products = $this->searchService->search($query);
-
-        return view('products.search', ['products' => $products]);
+        $test = Arr::get($products,'0');
+        if ($test) {
+            return view('products.search', ['products' => $products]);
+        } return redirect('/')->with('status', 'product_not_found');
     }
 
-    public function product($category, $productSlug, $domain = 'ae')
+    public function product($category, $productSlug)
     {
-        $parts = explode('.', $_SERVER['HTTP_HOST'])[0];
-        if ($parts !== env('APP_URL')) {
-            $domain2 = $category;
-            $category =$productSlug;
-            $productSlug = $domain;
-            $country = Country::whereCode($domain2)->first();
-        } else {
-            $country = Country::whereCode($domain)->first();
-        }
+        $country = Country::whereCode('ae')->first();
         $product = $this->productService->productBySlug($productSlug);
+        $test = Arr::get($product,'product.id');
 
-        return view('products.product-page', [
-            'category' => $category,
-            'country' => $country,
-            'product' => $product
-        ]);
+        if ($test) {
+            return view('products.product-page', [
+                'category' => $category,
+                'country' => $country,
+                'product' => $product['product'],
+                'similars' => $product['similars']
+            ]);
+        } return redirect('404');
+    }
+
+    public function dproduct($domain, $category, $productSlug)
+    {
+        $country = Country::whereCode($domain)->first();
+        $product = $this->productService->productBySlug($productSlug);
+        $test = Arr::get($product,'product.id');
+        if ($test) {
+            return view('products.product-page', [
+                'category' => $category,
+                'country' => $country,
+                'product' => $product['product'],
+                'similars' => $product['similars']
+            ]);
+        } return redirect('404');
     }
 }

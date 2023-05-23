@@ -1,13 +1,23 @@
 @extends('layouts.app')
 
 @section('title')
-    Supplier of Test &amp; Measurement Instruments in {{ $country->name }}
+    Supplier of Test & Measurement Instruments in {{ $country->name }} - Instrubiz
 @endsection
+
+@section('description')
+    In instrubiz store you will find all the best in Test and Measurement, Industrial Instruments. More than 200 brands of industrial appliances with fast delivery to {{ $country->shop_desc }}
+@endsection
+
 @section('content')
     <x-page-header>
-        <p style="color: #f7c02d;font-weight: 900;font-size: 24px">Test &amp; Measurement Instruments</p>
-        <h1 style="color: #ffffff">Supplier and Reseller in {{ $country->name }}</h1>
-        <a class="bg_button" href="/store/brands">Our Products </a>
+        <h1>
+        <span style="font-size: 24px">Test & Measurement Instruments</span>
+            <br />
+        <span style="color: #ffffff">
+            SUPPLIER AND RESELLER IN {{ $country->name }}
+        </span>
+        </h1>
+        <a class="bg_button" href="/store/brands" rel="external">Our Products </a>
     </x-page-header>
     @include('homepage.sevice')
     @include('homepage.aboute')

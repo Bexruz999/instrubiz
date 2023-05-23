@@ -5,7 +5,7 @@
             <ul class="product-categories">
                 <li>
                     <a href="https://instrubiz.ae/store/brand/kanomax">
-                        <i class="fa fa-long-arrow-right"></i>Kanomax                                    </a>
+                        <i class="fa fa-long-arrow-right"></i>Kanomax </a>
                 </li>
                 <li>
                     <a href="https://instrubiz.ae/store/brand/e-e-elektronik">

@@ -83,8 +83,8 @@
                     <div class="extra-menu-item menu-item-search last-child">
                         <a href="#" class="toggle-search"><i class="fa fa-search" aria-hidden="true"></i></a>
                         <form class="search-form" id="yw1" action="/store" method="GET">
-                            <input class="search-field" type="text" name="q" id="q">
-                            <input class="search-submit" value="Search" type="submit">
+                            <input class="search-field" type="text" name="q" id="search">
+                            <input id="search-send" class="search-submit" value="Search" type="submit">
                         </form>
                     </div>
 

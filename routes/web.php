@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
 
@@ -21,46 +22,42 @@ use TCG\Voyager\Facades\Voyager;
 
 //Test routes
 
-Route::get('/test', [MailController::class, 'test']);
+Route::get('/test', function () {
+    return view('test.page_section');
+});
 
 Route::domain('{domain}.' . env('APP_URL'))->group(function () {
 
-
-
-
     //Home routes
     Route::get('/', [HomeController::class, 'index'])->name('Home');
-
-    //MAil routes
-    Route::post('/mail', [MailController::class, 'send'])->name('Mail');
+    Route::get('/index.html', [HomeController::class, 'index'])->name('Home');
 
     //Brands routes
     Route::get('/store/brands', [BrandController::class, 'index'])->name('Brands');
-    Route::get('/store/brand/{slug}', [BrandController::class, 'brand'])->name('Brands-page');
-
+    Route::get('/store/brand/{slug}', [BrandController::class, 'dbrand'])->name('Brands-page');
 
     //Category routes
     Route::get('/store/categories', [CategoryController::class, 'index'])->name('Categories');
-    Route::get('/store/{slug}', [CategoryController::class, 'category'])->name('Categories-page');
+    Route::get('/store/{slug}', [CategoryController::class, 'dcategory'])->name('Categories-page');
 
     //Contacts routes
     Route::get('/contacts', [ContactsController::class, 'contacts'])->name('Contact us');
 
     //Product routes
     Route::get('/store', [ProductController::class, 'search'])->name('Store');
-    Route::get('/store/{category}/{product}.html', [ProductController::class, 'product'])->name('Product-page');
+    Route::get('/store/{category}/{product}.html', [ProductController::class, 'dproduct'])->name('Product-page');
 
-    //Voyager routes
-    Route::group(['prefix' => 'admin'], function () { Voyager::routes(); });
+    //MAil routes
+    Route::post('/mail', [MailController::class, 'send'])->name('Mail');
 });
 
 //Home routes
 Route::get('/', [HomeController::class, 'index'])->name('Home');
+Route::get('/index.html', [HomeController::class, 'index'])->name('Home');
 
 //Brands routes
 Route::get('/store/brands', [BrandController::class, 'index'])->name('Brands');
 Route::get('/store/brand/{slug}', [BrandController::class, 'brand'])->name('Brands-page');
-
 
 //Category routes
 Route::get('/store/categories', [CategoryController::class, 'index'])->name('Categories');
@@ -72,6 +69,9 @@ Route::get('/contacts', [ContactsController::class, 'contacts'])->name('Contact 
 //Product routes
 Route::get('/store', [ProductController::class, 'search'])->name('Store');
 Route::get('/store/{category}/{product}.html', [ProductController::class, 'product'])->name('Product-page');
+
+//MAil routes
+Route::post('/mail', [MailController::class, 'send'])->name('Mail');
 
 //Voyager routes
 Route::group(['prefix' => 'admin'], function () { Voyager::routes(); });

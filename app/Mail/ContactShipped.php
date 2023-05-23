@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -18,7 +17,7 @@ class ContactShipped extends Mailable
      *
      * @return void
      */
-    public function __construct(protected $request, protected $txt, protected $phone)
+    public function __construct(protected $request, protected $txt, protected $phone, protected $country)
     {
         //
     }
@@ -48,7 +47,8 @@ class ContactShipped extends Mailable
                 'name' => $this->request['name'],
                 'email' => $this->request['email'],
                 'txt' => $this->txt,
-                'phone' => $this->phone
+                'phone' => $this->phone,
+                'country' => $this->country
             ]
         );
     }

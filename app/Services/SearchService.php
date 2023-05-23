@@ -65,14 +65,7 @@ class SearchService
         $results = StoreProduct::with(['category' => function ($query) {
             $query->select('id', 'slug');
         }])->whereRaw($this->ravBody, $qQuery)
-            ->where('category_id', '>', '0')->paginate($this->searchCount);
+            ->where('category_id', '>', '0')->orderBy('name')->paginate($this->searchCount)->withQueryString();
         return $results;
     }
-
-/*    public function alphapager(string $char, $model = null)
-    {
-        $qQuery = $this->searchQuery($char);
-        $results = StoreProducer::whereRaw($this->ravProducer, $qQuery)->paginate(12);
-        return $results;
-    }*/
 }

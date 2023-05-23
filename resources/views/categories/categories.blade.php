@@ -1,14 +1,17 @@
 @extends('layouts.app')
 
 @section('title')
-     Categories
+    Test and measurement, Industrial Instruments product categories in {!! $country->name !!} | Instrubiz
+@endsection
+
+@section('description')
+    More than 100 categories of test & measurement Instruments  from world manufacturers at the best prices in {!! $country->shop_desc !!} - Instrubiz
 @endsection
 
 @section('content')
-
     <x-page-header>
         <div class="container">
-            <h1>Shop for all major Test and Measurement Instrument Brands at Best Prices in UAE</h1>
+            <h1>SHOP FOR ALL MAJOR TEST AND MEASUREMENT INSTRUMENT BRANDS AT BEST PRICES IN {!! $country->name !!}</h1>
             <nav class="breadcrumbs">
                 <a class="home" href="/"><span>Home</span></a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>

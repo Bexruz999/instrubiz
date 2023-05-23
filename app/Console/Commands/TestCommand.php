@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Services\MailService;
+use App\Services\ProductService;
 use Illuminate\Console\Command;
 
 class TestCommand extends Command
@@ -26,8 +27,8 @@ class TestCommand extends Command
      *
      * @return int
      */
-    public function handle(MailService $mailService)
+    public function handle(ProductService $productService)
     {
-        $mailService->send();
+        $productService->productBySlug('aim-tti-rm200a-rack-mount-kit');
     }
 }

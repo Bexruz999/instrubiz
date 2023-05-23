@@ -227,7 +227,7 @@
     line-height: 24px;
     font-weight: 400;
     font-style: normal;
-    font-family: Open Sans;
+    font-family: Open Sans, serif;
     text-decoration: none;
     background-color: transparent;
     border-color: transparent;
@@ -243,7 +243,7 @@
     line-height: 15px;
     font-weight: bold;
     font-style: normal;
-    font-family: Montserrat;
+    font-family: Montserrat, serif;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0);
     border-color: #ffffff;
@@ -350,13 +350,13 @@
     line-height: 60px;
     font-weight: 600;
     font-style: normal;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     text-decoration: none;
     background-color: transparent;
     border-color: transparent;
     border-style: none;
-    border-width: 0 0 0 0px;
-    border-radius: 0 0 0 0px
+    border-width: 0 0 0 0;
+    border-radius: 0 0 0 0;
 }
 
 .tp-caption.fp_content_layer,
@@ -366,7 +366,7 @@
     line-height: 16px;
     font-weight: 600;
     font-style: normal;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     text-decoration: none;
     background-color: transparent;
     border-color: transparent;
@@ -382,7 +382,7 @@
     line-height: 16px;
     font-weight: 600;
     font-style: normal;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0);
     border-color: #ffffff;

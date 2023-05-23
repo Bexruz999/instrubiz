@@ -9,19 +9,19 @@
                                 <li class="product col-sm-6 col-xs-12 col-md-3 col-4">
                                     <div class="product-inner">
 
-                                        <a href="/store/{{ $product->category->slug }}/{{ $product->slug }}" class="woocommerce-loop-product__link">
+                                        <a href="/store/{{ $product->category->slug }}/{{ $product->slug }}.html" class="woocommerce-loop-product__link">
                                             <img src="{{ $product->image }}" alt="" width="270" height="270">
                                             <span class="product-icon"><i class="fa fa-link"></i></span>
                                         </a>
 
                                         <div class="product-info">
                                             <h4>
-                                                <a href="/store/{{ $product->category->slug }}/{{ $product->slug }}">{{ $product->name }}</a>
+                                                <a href="/store/{{ $product->category->slug }}/{{ $product->slug }}.html">{{ $product->name }}</a>
                                             </h4>
                                             <br>
-                                            <p>{{ $product->short_description }}</p>
+                                            <p>{{ substr($product->short_description, 0, 50)  }}</p>
                                             <div class="product-footer">
-                                                <a href="/store/{{ $product->category->slug }}/{{ $product->slug }}" class="button product_type_simple add_to_cart_button ">More</a>
+                                                <a href="/store/{{ $product->category->slug }}/{{ $product->slug }}.html" class="button product_type_simple add_to_cart_button ">More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -30,7 +30,9 @@
                         </div>
                     </div>
                 </ul>
-                {{ $products->links() }}
+                <div class="col-md-12">
+                    {{$products->links()}}
+                </div>
             </div>
             <x-aside></x-aside>
         </div>

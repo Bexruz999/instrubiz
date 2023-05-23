@@ -644,8 +644,6 @@
     mainwindow.on('load', function() {
         stylePreloader();
 
-    });
-
 
     /* ==========================================================================
        When Window is resizing, do

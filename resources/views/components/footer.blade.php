@@ -58,7 +58,9 @@
                             <div class="detail mail">
                                 <i class="flaticon-note"></i>
                                 <div>
-                                    <span>Mail Us At:</span> <a href="mailto:inquiry@instrubiz.com">inquiry@instrubiz.com</a>
+                                    <span>Mail Us At:</span> <a href="mailto:{{ setting('site.request_quoate') }}">
+                                        {{ setting('site.request_quoate') }}
+                                    </a>
                                 </div>
                             </div>
                         </div>

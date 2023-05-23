@@ -12,10 +12,10 @@ class CategoryService
     {
         $category_count = setting('site.catedory_count', 20);
         if ($char) {
-            $categories = StoreCategory::whereHas('products')->where('name', 'like', "$char%")->paginate($category_count)
+            $categories = StoreCategory::whereHas('products')->where('name', 'like', "$char%")->orderBy('name')->paginate($category_count)
                 ->withQueryString();
         } else {
-            $categories = StoreCategory::whereHas('products')->paginate($category_count)->withQueryString();
+            $categories = StoreCategory::whereHas('products')->orderBy('name')->paginate($category_count)->withQueryString();
         }
         return $categories;
     }
@@ -23,11 +23,15 @@ class CategoryService
     {
         $productsCount = setting('site.category_page_count', 20);
         $category = StoreCategory::where('slug', $slug)->first();
-        $products = StoreProduct::where('category_id', $category->id)->paginate($productsCount)
-            ->withQueryString();
-        return [
-            'category' => $category,
-            'products' => $products
-        ];
+        if ($category) {
+            $products = StoreProduct::where('category_id', $category->id)->paginate($productsCount)
+                ->withQueryString();
+            if ($products) {
+                return [
+                    'category' => $category,
+                    'products' => $products
+                ];
+            } else { return false; }
+        } return false;
     }
 }

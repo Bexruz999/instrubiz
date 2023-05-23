@@ -49,8 +49,8 @@
 
 @media (max-width: 1199px) {
     .brand-logo{
-        max-width: 150px;
-        width: 150px;
+        max-width: 250px;
+        width: 250px;
     }
     .topbar > div {
         display: block;
@@ -140,6 +140,12 @@
     }
     body .mf-services-2:hover .service-thumbnail .service-icon {
         display: none;
+    }
+    .page-header.has-image {
+        background-color: transparent;
+        height: 85vh;
+        margin-top: -82.5px;
+        padding-top: 82.5px;
     }
 }
 
@@ -362,6 +368,9 @@
     .whychooseus_1 {
         margin-top: 0!important;
     }
+    .alphapager {
+        margin-bottom: 10px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -425,9 +434,6 @@
     .page-header .page-header-content {
         padding-top: 110px;
     }
-    .page-header h1 {
-        padding-bottom: 65px;
-    }
     .comment-list .children {
         padding-left: 0;
     }
@@ -452,6 +458,10 @@
         width: 45px;
         height: 45px;
         line-height: 43px;
+    }
+    .callBack {
+        bottom: 90px;
+        right: 38px;
     }
     .woocommerce div.product-image,
     .woocommerce div.product-summary {
@@ -617,6 +627,17 @@
     .cart .shop_cart_table .table-1 tr td.flex_item h6 {
         font-size: 19px;
         margin: 21px 32px 0 27px;
+    }
+    .brand-logo {
+        max-width: 250px;
+        width: 250px;
+    }
+    .header-content p {
+        font-size: 20px
+    }
+
+    .header-content h1 {
+        font-size: 30px;
     }
 }
 

@@ -2,26 +2,27 @@
     <div class="container">
         <div class="row">
             <div id="primary" class="content-area col-md-9 col-sm-12 col-xs-12">
-                <div class="product">
+                <div class="product" itemscope itemtype="http://schema.org/Product">
+
                     <div class="mf-product-details clearfix">
                         <div class="product-image">
                             <img src="{{ $product->image }}" class="product-gallery__main-img"
-                                 alt="{{ $product->image_alt }}" title="{{ $product->name }}">
+                                 itemprop="image" alt="{{ $product->image_alt }}" title="{{ $product->name }}">
                         </div>
                         <div class="product-summary entry-summary">
-                            <h2 class="product_title entry-title">{{ "$product->name - $country->name" }} </h2>
+                            <h2 itemprop="name" class="product_title entry-title">{{ "$product->name - $country->name" }} </h2>
                             <span><b>Category:</b>
                                 <a style="color: #0a6aa1 !important;font-weight: 800"
                                    href="/store/{{$category}}">{{ $product->category->name}}</a>
                             </span>
                             <br>
                             <span><b>Manufacturer:</b>
-                                <a style="color: #0a6aa1 !important;font-weight: 800"
+                                <a itemprop="brand" style="color: #0a6aa1 !important;font-weight: 800"
                                    href="/store/brand/{{$product->producer->slug}}">{{$product->producer->name}}</a>
                             </span>
 
-                            <div class="woocommerce-product-details__short-description">
-                                {{$product->short_description}}
+                            <div itemprop="description" class="woocommerce-product-details__short-description">
+                                {!! str_replace('Learn more...', '', $product->short_description ) !!}
                                 <br>
                                 <h2 style="font-size: 18px;font-weight: 800">InstruBiz
                                     is a leading supplier and reseller of Rice Lake Weighing Systems in
@@ -47,11 +48,10 @@
                             </ul>
                         </div>
                         <div class="panel-body">
-                            {{ $product->description }}
+                            {!! $product->description !!}
                         </div>
                     </div>
-
-                    <!--related product-->
+                    <link itemprop="availability" href="http://schema.org/InStock">
                 </div>
             </div>
 
@@ -112,6 +112,36 @@
                     </div>
                 </div>
             </aside>
+            <div id="primary" class="content-area col-md-9 col-sm-12 col-xs-12">
+                <br>
+                <h4>Similar products</h4>
+                <br>
+                <ul class="products service-dtail" id="slider">
+                    @foreach($similars as $similar)
+                        <li class="product" style="margin: 5px">
+                            <div class="product-inner">
+
+                                <a href="/store/{{$category}}/{{$similar->slug}}.html" class="woocommerce-loop-product__link">
+                                    <img src="{{$similar->image}}" alt="{{$similar->image_alt}}" width="270" height="270">
+                                    <span class="product-icon"><i class="fa fa-link"></i></span>
+                                </a>
+
+                                <div class="product-info">
+                                    <h4>
+                                        <a href="/store/{{$category}}/{{$similar->slug}}.html">{!! $product->name !!}</a>
+                                    </h4>
+                                    <br>
+                                    <p>{!! $similar->short_description !!}</p>
+                                    <div class="product-footer">
+                                        <a href="/store/{{$category}}/{{$similar->slug}}.html" class="button product_type_simple add_to_cart_button ">More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+                <br />
+            </div>
         </div>
     </div>
 </div>

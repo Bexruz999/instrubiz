@@ -9,7 +9,7 @@
 
     {{--<title>Supplier of Test &amp; Measurement Instruments in UAE</title>--}}
     <title>@yield('title')</title>
-    <meta name="description" content="Buy Test and Measurement, Industrial Instruments at best prices in UAE">
+    <meta name="description" content="@yield('description')">
     <meta name="keywords" content="">
     <meta name="yandex-verification" content="1eed189587ffd83f">
     <!-- Stylesheets -->
@@ -23,7 +23,7 @@
     <!-- animate css -->
     <link rel="stylesheet" href="{{ asset ('/css/animate.css') }}">
 
-    <link rel="stylesheet" href="{{ asset ('/css/jquery.fancybox.css') }}" />
+    <link rel="stylesheet" href="{{ asset ('/css/jquery.fancybox.css') }}"/>
     <link rel="stylesheet" href="{{ asset ('/css/hover.css') }}">
 
     <link rel="stylesheet" href="{{ asset ('/css/frontend.css') }}">
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{{ asset ('/css/responsive.css') }}">
 
     <style>
-        .header-v5 .main-nav ul.menu>li:not(.mf-active-menu) {
+        .header-v5 .main-nav ul.menu > li:not(.mf-active-menu) {
             background-image: url("{{ asset ('/css/menu-seperate.png') }}");
         }
     </style>
@@ -39,11 +39,11 @@
     <!--Favicon-->
     <link rel="icon" href="{{ asset ('/favicon.ico') }}" type="image/x-icon">
     <!-- Responsive -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset ('/css/responsive.css') }}">
-    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-    <!--[if lt IE 9]><script src="/assets/ddc9e813/js/respond.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/assets/ddc9e813/js/respond.js"></script><![endif]-->
 
     <script type="text/javascript">
         var yupeTokenName = 'YUPE_TOKEN';
@@ -53,18 +53,31 @@
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JLYN90MHF5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'G-JLYN90MHF5');
     </script>
+    @yield('styles')
 </head>
 <body class=" text-xl">
-
+<x-alerts></x-alerts>
 @include('homepage.header')
 @yield('content')
+<div class="primary-mobile-nav header-v1" id="primary-mobile-nav" role="navigation">
+    <a href="#" class="close-canvas-mobile-panel">×</a>
+    <ul class="menu" id="yw3">
+        <li class="listItem nav_item"><a class="listItemLink" href="/">Home</a></li>
+        <li class="listItem nav_item"><a class="listItemLink" href="/store/brands">Brands</a></li>
+        <li class="listItem nav_item"><a class="listItemLink" href="/store/categories">Categories</a></li>
+        <li class="listItem nav_item"><a class="listItemLink" href="/contacts">Contacts</a></li>
+    </ul>
+</div>
 <a id="scroll-top" class="backtotop" href="#page-top"><i class="fa fa-angle-up"></i></a>
-
 
 
 <!-- jquery Liabrary -->
@@ -89,11 +102,51 @@
 <script src="{{ asset ('/js/contact.js') }}"></script>
 
 <div>
-    <div style="display: none; position: fixed; top: 30px; width: auto; max-width: 100%; text-align: center; left: 50%; transform: translateX(-50%); z-index: 99999999;"><div style="display: inline-block; font-size: 14px; font-weight: bold; border: 1px solid rgb(240, 195, 109); background-color: rgb(249, 237, 190); padding: 0px 10px; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;"></div>
+    <div
+        style="display: none; position: fixed; top: 30px; width: auto; max-width: 100%; text-align: center; left: 50%; transform: translateX(-50%); z-index: 99999999;">
+        <div
+            style="display: inline-block; font-size: 14px; font-weight: bold; border: 1px solid rgb(240, 195, 109); background-color: rgb(249, 237, 190); padding: 0px 10px; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;"></div>
+    </div>
+
+    <div class="callBack">
+        <div class="callBack__body">
+            <div class="callBack__icon">
+                <img src="{{ asset ('/storage/icons/call.svg') }}" alt="call">
+            </div>
+            <a href="tel:+971-58-9285102" class="callBack__phone">
+                <img src="{{ asset ('/storage/icons/phoneicon.svg') }}" alt="phone">
+            </a>
+            <a href="https://wa.me/971589285102" class="callBack__whatsApp">
+                <img src="{{ asset ('/storage/icons/chaticon.svg') }}" alt="whatsApp">
+            </a>
+            <a href="mailto:inquiry@instrubiz.com" class="callBack__mail">
+                <img src="{{ asset ('/storage/icons/mailicon.svg') }}" alt="mail">
+            </a>
+        </div>
     </div>
 </div>
+
+@yield('scripts')
 </body>
 
+<script>
+    let btn = document.querySelector('.callBack__icon');
+    let phone = document.querySelector('.callBack__phone');
+    let whatsApp = document.querySelector('.callBack__whatsApp');
+    let mail = document.querySelector('.callBack__mail');
+
+    btn.onclick = function () {
+        phone.classList.toggle('active')
+        whatsApp.classList.toggle('active')
+        mail.classList.toggle('active')
+    }
+    const notification = document.querySelector('.notification');
+    const button = document.querySelector('.notification button');
+    button.onclick = function () {
+        console.log('bmbrmom')
+        notification.classList.toggle('received');
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation-cjs@1.0.0/dist/jquery.validate.min.js">
 
 </script>

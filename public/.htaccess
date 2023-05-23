@@ -9,13 +9,12 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^ae\.instrubiz\.ae$
+    RewriteRule ^(.*)$ https://instrubiz.ae/$1 [R=301,L]
 
-    # Send Requests To Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^www\.instrubiz\.ae$ [OR]
+    RewriteCond %{HTTP_HOST} ^instrubiz\.ae$
+    RewriteRule ^(.*)$ https://instrubiz.ae/$1 [R=301,L]
 </IfModule>

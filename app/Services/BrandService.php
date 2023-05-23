@@ -12,10 +12,10 @@ class BrandService
     {
         $brand_count = setting('site.brand_count', 12);
         if ($char) {
-            $brands = StoreProducer::whereHas('products')->where('name', 'like', "$char%")->paginate($brand_count)
-                ->withQueryString();
+            $brands = StoreProducer::whereHas('products')->where('name', 'like', "$char%")->orderBy('name')
+            ->paginate($brand_count)->withQueryString();
         } else {
-            $brands = StoreProducer::whereHas('products')->paginate($brand_count)->withQueryString();
+            $brands = StoreProducer::whereHas('products')->orderBy('name')->paginate($brand_count)->withQueryString();
         }
         return $brands;
     }
@@ -23,19 +23,19 @@ class BrandService
     public function brandPage($slug)
     {
         $productsCount = setting('site.brand_page_count', 20);
-        $brand = StoreProducer::where('slug', $slug)->first();
-        $products = StoreProduct::with(['category' => function ($query) {
-            $query->select('id', 'slug');
-        }])->where('producer_id', $brand->id)->paginate($productsCount);
-        return [
-            'brand' => $brand,
-            'products' => $products
-        ];
+        $brand = StoreProducer::where('slug', $slug)->orderBy('name')->first();
+
+        if (!empty($brand)) {
+            $products = StoreProduct::with(['category' => function ($query) {
+                $query->select('id', 'slug');
+            }])->where('producer_id', $brand->id)->orderBy('name')->paginate($productsCount);
+            return ['brand' => $brand, 'products' => $products];
+        } return false;
     }
 
     public function home()
     {
-        $brands = StoreProducer::inRandomOrder()->take(4)->get();
+        $brands = StoreProducer::whereHas('products')->inRandomOrder()->take(4)->orderBy('name')->get();
         return $brands;
     }
 }

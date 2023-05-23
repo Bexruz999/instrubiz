@@ -44,12 +44,11 @@
                                                             <div class="product-info">
                                                                 <h4>
                                                                     <a href="/store/{{ $product->category->slug }}/{{$product->slug}}.html">
-                                                                        {{ $product->name }}
-
+                                                                        {!! $product->name !!}
                                                                     </a>
                                                                 </h4>
                                                                 <br>
-                                                                <p>{{ "$product->short_description in $country->name" }}</p>
+                                                                <p> {!! str_replace('Learn more...', '', $product->short_description ) !!} </p>
                                                                 <div class="product-footer">
                                                                     <a href="/store/{{ $product->category->slug }}/{{$product->slug}}.html"
                                                                        class="button product_type_simple add_to_cart_button">More</a>
@@ -61,7 +60,9 @@
                                             </div>
                                         </div>
                                     </ul>
-                                    {{$products->links()}}
+                                    <div class="col-md-12">
+                                        {{$products->links()}}
+                                    </div>
                                 </div>
                             </div>
                         </div>

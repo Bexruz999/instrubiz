@@ -13,7 +13,7 @@ class ProductService
             'category' => function ($query) {$query->select('id', 'slug', 'name');},
             'producer' => function ($query) {$query->select('id', 'slug', 'name');},
         ])->where('slug', $slug)->first();
-
-        return $product;
+        $similars = StoreProduct::where('category_id', $product->category->id)->take(8)->get();
+        return ['product' => $product, 'similars' => $similars];
     }
 }

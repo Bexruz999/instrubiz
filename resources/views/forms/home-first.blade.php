@@ -8,11 +8,11 @@
             <div class="controls mf-form mf-form-5">
                 @csrf
                 <div class="form-group">
-                    <input name="name" type="text" placeholder="Your Name" required="">
+                    <input id="name3" name="name" type="text" placeholder="Your Name" required="">
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
-                    <input name="email" type="email" placeholder="Email Address" required="">
+                    <input id="name3" name="email" type="email" placeholder="Email Address" required="">
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
