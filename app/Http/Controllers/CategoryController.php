@@ -20,7 +20,11 @@ class CategoryController extends Controller
 
     public function index(Request $request, $domain = 'ae')
     {
-        $country = Country::whereCode($domain)->first();
+        $subDomain = Arr::get(explode(".", $_SERVER['HTTP_HOST']), '0');
+        if ($subDomain === 'instrubiz') {$subDomain = 'ae';}
+        elseif ($subDomain === 'ae' || $subDomain === 'www' || $subDomain === 'om') {
+        return redirect('https://instrubiz.ae/store/categories', 301);}
+        $country = Country::whereCode($subDomain)->first();
         $char = $request->get('char');
         $categories = $this->categoryService->index($char);
         return view('categories.categories', [
@@ -31,7 +35,11 @@ class CategoryController extends Controller
 
     public function category($slug)
     {
-        $country = Country::whereCode('ae')->first();
+        $subDomain = Arr::get(explode(".", $_SERVER['HTTP_HOST']), '0');
+        if ($subDomain === 'instrubiz') {$subDomain = 'ae';}
+        elseif ($subDomain === 'ae' || $subDomain === 'www' || $subDomain === 'om') {
+        return redirect("https://instrubiz.ae/store/$slug", 301);}
+        $country = Country::whereCode($subDomain)->first();
         $data = $this->categoryService->categoryPage($slug);
 
         if ($data) {
@@ -41,22 +49,6 @@ class CategoryController extends Controller
                 'products' => $data['products']
             ]);
         }
-        return redirect('404');
-    }
-
-    public function dcategory($domain, $slug)
-    {
-        $country = Country::whereCode($domain)->first();
-        $data = $this->categoryService->categoryPage($slug);
-
-        if ($data) {
-            return view('categories.category-page', [
-                'category' => $data['category'],
-                'country' => $country,
-                'products' => $data['products'],
-                'domain' => $domain
-            ]);
-        }
-        return redirect('404');
+        return redirect('/store/categories');
     }
 }

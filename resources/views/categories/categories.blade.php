@@ -8,6 +8,11 @@
     More than 100 categories of test & measurement Instruments  from world manufacturers at the best prices in {!! $country->shop_desc !!} - Instrubiz
 @endsection
 
+@section('styles')
+    <meta property="og:type" content="product">
+    <link rel="canonical" href="{{ url('') }}/store/categories"/>
+@endsection
+
 @section('content')
     <x-page-header>
         <div class="container">

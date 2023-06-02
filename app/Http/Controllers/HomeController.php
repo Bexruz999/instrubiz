@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
-use App\Models\StoreProducer;
 use App\Services\BrandService;
-use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class HomeController extends Controller
 {
@@ -16,13 +15,17 @@ class HomeController extends Controller
         $this->brandSerivce = $brandService;
     }
 
-    public function index($domain = 'ae')
+    public function index()
     {
-        if ($_SERVER['REQUEST_URI'] !== '/') {
+        /*if ($_SERVER['REQUEST_URI'] !== '/') {
             return redirect($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'], 301);
-        }
+        }*/
+        $subDomain = Arr::get(explode(".", $_SERVER['HTTP_HOST']), '0');
+        if ($subDomain === 'instrubiz' ) {$subDomain = 'ae';}
+        elseif ($subDomain === 'ae' || $subDomain === 'www' || $subDomain === 'om') {
+        return redirect('https://instrubiz.ae', 301);}
         $brands = $this->brandSerivce->home();
-        $country = Country::whereCode($domain)->first();
+        $country = Country::whereCode($subDomain)->first();
         return view('homepage.home', ['country' => $country , 'brands' => $brands]);
     }
 }

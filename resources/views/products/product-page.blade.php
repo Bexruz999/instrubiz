@@ -1,29 +1,32 @@
 @extends('layouts.app')
 
 @section('title')
-    Buy {!! $product->name !!} in {!! $country->name !!} | Instrubiz
+    {!! $product->name !!} in {!! $country->name !!} | Instrubiz
 @endsection
 
 @section('description')
-    {!! $product->name !!} and other {!! $product->category->name !!} at the best price in {!! $country->shop_desc !!} on Instrubiz
+    Buy {!! $product->name !!} and other {!! $product->category->name !!} at the best price in {!! $country->shop_desc !!} on Instrubiz
 @endsection
 
 @section('styles')
+    <meta property="og:image" content="{{$product->image}}">
+    <meta property="og:type" content="product">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="canonical" href="{{ url('') }}/store/{!! $product->category->slug !!}/{{ $product->slug }}.html"/>
 @endsection
 
 @section('content')
 
     <x-page-header>
         <div class="container">
-            <h1>{{"$product->name | $country->name"}}</h1>
+            <h1>{{"$product->name in $country->shop_desc"}}</h1>
             <nav class="breadcrumbs">
                 <a class="home" href="/"><span>Home</span></a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
                 <a class="home"
                    href="/store/{!! $product->category->slug !!}"><span>{!! $product->category->name !!}</span></a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
-                <span>{!! "$product->name | $country->name"!!}</span>
+                <span>{!! "$product->name in $country->name"!!}</span>
             </nav>
         </div>
     </x-page-header>

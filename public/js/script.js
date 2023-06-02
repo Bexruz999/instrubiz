@@ -1,4 +1,4 @@
-(function($) {
+$ => {
 
     "use strict";
 
@@ -26,7 +26,6 @@
                     hide_delay_mobile: 1200,
                     hide_under: 0,
                     hide_over: 9999,
-                    tmp: ''
                 }
             },
             parallax: {
@@ -34,7 +33,6 @@
                 origo: "slidercenter",
                 speed: 1000,
                 levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 100, 55],
-                type: "scroll",
             },
             responsiveLevels: [1240, 1024, 778, 480],
             visibilityLevels: [1240, 1024, 778, 480],
@@ -42,7 +40,7 @@
             gridheight: [770, 768, 960, 720]
 
         });
-    };
+    }
 
     // rev-slider
     if (jQuery("#slider2").length) {
@@ -66,7 +64,6 @@
                     hide_delay_mobile: 1200,
                     hide_under: 0,
                     hide_over: 9999,
-                    tmp: ''
                 }
             },
             parallax: {
@@ -74,14 +71,13 @@
                 origo: "slidercenter",
                 speed: 1000,
                 levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 100, 55],
-                type: "scroll",
             },
             responsiveLevels: [1240, 1024, 778, 480],
             visibilityLevels: [1240, 1024, 778, 480],
             gridwidth: [1170, 1024, 778, 480],
             gridheight: [650, 768, 960, 720]
         });
-    };
+    }
 
     // rev-slider
     if (jQuery("#slider3").length) {
@@ -104,23 +100,21 @@
                     hide_delay: 200,
                     hide_delay_mobile: 1200,
                     hide_under: 0,
-                    hide_over: 9999,
-                    tmp: ''
+                    hide_over: 9999
                 }
             },
             parallax: {
                 type: "scroll",
                 origo: "slidercenter",
                 speed: 1000,
-                levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 100, 55],
-                type: "scroll",
+                levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 100, 55]
             },
             responsiveLevels: [1240, 1024, 778, 480],
             visibilityLevels: [1240, 1024, 778, 480],
             gridwidth: [1170, 1024, 778, 480],
             gridheight: [800, 768, 960, 720]
         });
-    };
+    }
 
     //Hide Loading Box (Preloader)
     function stylePreloader() {
@@ -605,7 +599,7 @@
                 }
 
             });
-        };
+        }
     }
 
 
@@ -654,4 +648,4 @@
 
 
 
-})(window.jQuery);
+})(window.jQuery);}

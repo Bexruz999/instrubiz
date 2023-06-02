@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0",
         "beyondcode/laravel-mailbox": "^3.1",
+        "ctsoft/laravel-pretty-pagination": "^1.1",
         "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.2",
         "joy/voyager-datatable": "^2.1",

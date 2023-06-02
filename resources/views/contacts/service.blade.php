@@ -10,7 +10,7 @@
                         <div><span>Address:</span> P.O. Box 122431, Dubai, U.A.E.</div>
                     </div>
                     <div class="contact-info phone"><i class="fa fa-phone"></i>
-                        <div><span>Call Us:</span> <a href="tel:+971-58-9285102">+971-58-9285102</a></div>
+                        <div><span>Call Us:</span> <a href="tel:+971589285102">+971-58-9285102</a></div>
                     </div>
                     <div class="contact-info email"><i class="flaticon-note"></i>
                         <div><span>Mail Us:</span> <a href="mailto:inquiry@instrubiz.com">inquiry@instrubiz.com</a></div>

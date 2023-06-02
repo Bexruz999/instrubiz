@@ -8,6 +8,12 @@
     In instrubiz store you will find all the best in Test and Measurement, Industrial Instruments. More than 200 brands of industrial appliances with fast delivery to {{ $country->shop_desc }}
 @endsection
 
+@section('styles')
+    <meta property="og:image" content="https://instrubiz.ae/storage/{!!str_replace("\\","/",setting('site.logo'))!!}">
+    <meta property="og:type" content="company">
+    <link rel="canonical" href="{{ url('') }}"/>
+@endsection
+
 @section('content')
     <x-page-header>
         <h1>

@@ -22,21 +22,30 @@ class ProductController extends Controller
     }
 
 
-    public function search(Request $request, $domain = 'ae')
+    public function search(Request $request)
     {
         $query = $request->get('q');
-        $products = $this->searchService->search($query);
-        $test = Arr::get($products,'0');
-        if ($test) {
-            return view('products.search', ['products' => $products]);
-        } return redirect('/')->with('status', 'product_not_found');
+        if (!empty($query)) {
+            $products = $this->searchService->search($query);
+            $test = Arr::get($products, '0');
+            if ($test) {
+                return view('products.search', ['products' => $products]);
+            }
+        }
+        return redirect('/')->with('status', 'product_not_found');
     }
 
     public function product($category, $productSlug)
     {
-        $country = Country::whereCode('ae')->first();
+        $subDomain = Arr::get(explode(".", $_SERVER['HTTP_HOST']), '0');
+        if ($subDomain === 'instrubiz') {
+            $subDomain = 'ae';
+        } elseif ($subDomain === 'ae' || $subDomain === 'www' || $subDomain === 'om') {
+            return redirect("https://instrubiz.ae/store/$category/$productSlug.html", 301);
+        }
+        $country = Country::whereCode($subDomain)->first();
         $product = $this->productService->productBySlug($productSlug);
-        $test = Arr::get($product,'product.id');
+        $test = Arr::get($product, 'product.id');
 
         if ($test) {
             return view('products.product-page', [
@@ -45,21 +54,7 @@ class ProductController extends Controller
                 'product' => $product['product'],
                 'similars' => $product['similars']
             ]);
-        } return redirect('404');
-    }
-
-    public function dproduct($domain, $category, $productSlug)
-    {
-        $country = Country::whereCode($domain)->first();
-        $product = $this->productService->productBySlug($productSlug);
-        $test = Arr::get($product,'product.id');
-        if ($test) {
-            return view('products.product-page', [
-                'category' => $category,
-                'country' => $country,
-                'product' => $product['product'],
-                'similars' => $product['similars']
-            ]);
-        } return redirect('404');
+        }
+        return redirect('/store/categories');
     }
 }

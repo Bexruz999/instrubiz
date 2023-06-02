@@ -10,6 +10,7 @@ class BrandService
 {
     public function index($char)
     {
+
         $brand_count = setting('site.brand_count', 12);
         if ($char) {
             $brands = StoreProducer::whereHas('products')->where('name', 'like', "$char%")->orderBy('name')
@@ -17,6 +18,8 @@ class BrandService
         } else {
             $brands = StoreProducer::whereHas('products')->orderBy('name')->paginate($brand_count)->withQueryString();
         }
+
+        //dd($brands->links());
         return $brands;
     }
 

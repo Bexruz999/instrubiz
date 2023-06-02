@@ -1,51 +1,3 @@
-	/*  induscity */
-	/************ TABLE OF CONTENTS ***************
-
-1. Reset
-2. Global Settings
-3. Typography Style
-4. All Elements Design
-5. Preloader
-6. Header
-7. Main Navigations
-8. Page Conents
-9. Carousel
-10.News Section
-11.Single News
-12.services Section
-13.Projects Section
-14.404 page
-15.Back To Top
-16.Comments Style
-17.Sidebar Widgets
-18.Sidebar Services
-19.shop Section
-20.Shop single
-21.Shop widget
-22.Contact location
-23.Services style
-24.Prtfolio Section
-25.Testimonials
-26.Pricing
-27.Counter
-28.Our Team
-29.Contact info box
-30.Progress bar
-31.Footer
-32.Page Header
-33.cart Table
-34.Custom Quote
-35.check Out page
-
-**********************************************/
-	/***
-
-====================================================================
-	Reset
-====================================================================
-
- ***/
-
 	* {
 	    -webkit-box-sizing: border-box;
 	    -moz-box-sizing: border-box;
@@ -285,75 +237,6 @@
 	td,
 	th {
 	    padding: 0;
-	}
-
-	input[type="text"],
-	input[type="email"],
-	input[type="url"],
-	input[type="password"],
-	input[type="search"],
-	input[type="number"],
-	input[type="tel"],
-	input[type="range"],
-	input[type="date"],
-	input[type="month"],
-	input[type="week"],
-	input[type="time"],
-	input[type="datetime"],
-	input[type="datetime-local"],
-	input[type="color"],
-	textarea,
-	select {
-	    -webkit-transition: border 0.5s;
-	    transition: border 0.5s;
-	    color: #848484;
-	    border: 1px solid #efefef;
-	    padding: 0 20px;
-	    -webkit-border-radius: 0;
-	    border-radius: 0;
-	    outline: none;
-	    -webkit-box-sizing: border-box;
-	    -moz-box-sizing: border-box;
-	    box-sizing: border-box;
-	    height: 50px;
-	    line-height: 50px;
-	}
-
-	input[type="text"]:active,
-	input[type="email"]:active,
-	input[type="url"]:active,
-	input[type="password"]:active,
-	input[type="search"]:active,
-	input[type="number"]:active,
-	input[type="tel"]:active,
-	input[type="range"]:active,
-	input[type="date"]:active,
-	input[type="month"]:active,
-	input[type="week"]:active,
-	input[type="time"]:active,
-	input[type="datetime"]:active,
-	input[type="datetime-local"]:active,
-	input[type="color"]:active,
-	textarea:active,
-	select:active,
-	input[type="text"]:focus,
-	input[type="email"]:focus,
-	input[type="url"]:focus,
-	input[type="password"]:focus,
-	input[type="search"]:focus,
-	input[type="number"]:focus,
-	input[type="tel"]:focus,
-	input[type="range"]:focus,
-	input[type="date"]:focus,
-	input[type="month"]:focus,
-	input[type="week"]:focus,
-	input[type="time"]:focus,
-	input[type="datetime"]:focus,
-	input[type="datetime-local"]:focus,
-	input[type="color"]:focus,
-	textarea:focus,
-	select:focus {
-	    border-color: #bcbcbc;
 	}
 
 	select {
@@ -1282,7 +1165,7 @@
 
 	.header-v5 .mf-header-item-button a {
 	    min-width: 200px;
-	    height: 70px;
+	    height: 100%;
 	    line-height: 72px;
 	    -webkit-border-radius: 0;
 	    border-radius: 0;

@@ -48,6 +48,9 @@
 }
 
 @media (max-width: 1199px) {
+    .list-view nav {
+        display: none;
+    }
     .brand-logo{
         max-width: 250px;
         width: 250px;

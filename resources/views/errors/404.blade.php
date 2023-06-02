@@ -15,15 +15,15 @@
 
                                 <form class="" id="yw1" action="/store" method="GET">
                                     <div class="input-group input-group-lg search_404">
-                                        <input type="text" class="form-control" name="q" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                                        <button type="submit" class="btn btn-dark">Search</button>
+                                        <input type="text" class="form-control search_404_input" name="q" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                        <button type="submit" class="btn" style="background-color: #f7c02d; margin-left: -2px;">Search</button>
                                     </div>
                                 </form>
 
                             </header>
                             <div class="page-content">
                                 <div class="back-home">
-                                    <a href="/"><button type="button" style="color: #000; font-size: 18px;" class="btn">Back to Home Page</button></a>
+                                    <a href="/"><button type="button" style="background-color: #f7c02d;font-size: 18px;" class="btn">Back to Home Page</button></a>
                                 </div>
 
                             </div>

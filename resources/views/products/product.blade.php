@@ -13,12 +13,14 @@
                             <h2 itemprop="name" class="product_title entry-title">{{ "$product->name - $country->name" }} </h2>
                             <span><b>Category:</b>
                                 <a style="color: #0a6aa1 !important;font-weight: 800"
-                                   href="/store/{{$category}}">{{ $product->category->name}}</a>
+                                   href="/store/{!! $category !!}">{!! $product->category->name !!}</a>
                             </span>
                             <br>
                             <span><b>Manufacturer:</b>
-                                <a itemprop="brand" style="color: #0a6aa1 !important;font-weight: 800"
-                                   href="/store/brand/{{$product->producer->slug}}">{{$product->producer->name}}</a>
+                                @if(Arr::get($product->producer, 'slug', null))
+                                    <a itemprop="brand" style="color: #0a6aa1 !important;font-weight: 800"
+                                       href="/store/brand/{{ Arr::get($product->producer, 'slug', null) }}">{{$product->producer->name}}</a>
+                                @endif
                             </span>
 
                             <div itemprop="description" class="woocommerce-product-details__short-description">
@@ -30,7 +32,7 @@
                                 </h2>
                             </div>
 
-                            <a href="mailto:{{ setting('site.request_quote') }}" class="button">
+                            <a href="mailto:inquiry@instrubiz.com" class="button">
                                 Request a Quote
                             </a>
                             <a href="{{ setting('site.whatsapp') }}" class="button">

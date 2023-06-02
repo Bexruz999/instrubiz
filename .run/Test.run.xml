@@ -1,5 +1,10 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Test" type="PhpLocalRunConfigurationType" factoryName="PHP Console" singleton="false" path="$PROJECT_DIR$/artisan" scriptParameters="test:run">
+    <CommandLine>
+      <PhpTestInterpreterSettings>
+        <option name="interpreterName" value="PHP 8.1.5" />
+      </PhpTestInterpreterSettings>
+    </CommandLine>
     <method v="2" />
   </configuration>
 </component>

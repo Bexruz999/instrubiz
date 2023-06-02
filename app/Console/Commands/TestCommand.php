@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Services\MailService;
 use App\Services\ProductService;
+use App\Services\SiteMapService;
 use Illuminate\Console\Command;
 
 class TestCommand extends Command
@@ -27,8 +28,10 @@ class TestCommand extends Command
      *
      * @return int
      */
-    public function handle(ProductService $productService)
+    public function handle(ProductService $productService, SiteMapService $siteMapService)
     {
-        $productService->productBySlug('aim-tti-rm200a-rack-mount-kit');
+        $siteMapService->createProductsMap();
+        //$siteMapService->createSiteMap();
+        //$productService->productBySlug('aim-tti-rm200a-rack-mount-kit');
     }
 }

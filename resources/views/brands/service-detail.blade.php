@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="mf-section-title text-left dark medium-size bold margbtm20">
-                            <h1> {{"$brand->name - $country->name"}}</h1>
+                            <h1> {{"$brand->name products in $country->shop_desc"}}</h1>
                             {{ $brand->description }}
                         </div>
                     </div>

@@ -108,7 +108,7 @@
                     </tbody>
                 </table>
 
-                <img style="width: 100%" src="/storage/{!!str_replace("\\","/",setting('site.world_map'))!!}" alt="">
+                <img style="width: 100%" src="{{ asset('storage/settings/map.webp') }}" alt="">
 
 
             </div>

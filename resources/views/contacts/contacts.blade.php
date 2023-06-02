@@ -8,6 +8,12 @@
     Instrubiz Contact Information
 @endsection
 
+@section('styles')
+    <meta property="og:image" content="https://instrubiz.ae/storage/{!!str_replace("\\","/",setting('site.logo'))!!}">
+    <meta property="og:type" content="contact">
+    <link rel="canonical" href="{{ url('') }}/contacts"/>
+@endsection
+
 @section('content')
 
     <x-page-header>

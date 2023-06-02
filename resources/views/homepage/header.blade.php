@@ -45,7 +45,7 @@
                                     <div class="textwidget custom-html-widget">
                                         <div class="header-contact mail">
                                             <div>
-                                                <a href="tel:+971-58-9285102">
+                                                <a href="tel:+971589285102">
                                                     <h5>+971-58-9285102 </h5> Call us
                                                 </a>
                                             </div>
@@ -83,7 +83,9 @@
                     <div class="extra-menu-item menu-item-search last-child">
                         <a href="#" class="toggle-search"><i class="fa fa-search" aria-hidden="true"></i></a>
                         <form class="search-form" id="yw1" action="/store" method="GET">
+                            <label for="q"></label>
                             <input class="search-field" type="text" name="q" id="search">
+                            <label for="search-send"></label>
                             <input id="search-send" class="search-submit" value="Search" type="submit">
                         </form>
                     </div>

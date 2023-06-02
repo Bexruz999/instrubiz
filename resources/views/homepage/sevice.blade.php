@@ -1,7 +1,7 @@
 <div class="service-2">
     <div class="container">
         <div class="mf-section-title text-center dark large-size margbtm40">
-            <h2>Shop for all major Test and Measurement Instrument Brands at Best Prices in UAE</h2>
+            <h2>Shop for all major Test and Measurement Instrument Brands at Best Prices in {{ $country->name }}</h2>
         </div>
         <div class="row">
             <div class="col-sm-8 col-xs-12">

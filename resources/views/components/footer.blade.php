@@ -52,7 +52,7 @@
                             <div class="detail phone">
                                 <i class="flaticon-tool"></i>
                                 <div>
-                                    <span>Call Us On:</span> <a href="tel:+971-58-9285102">+971-58-9285102</a>
+                                    <span>Call Us On:</span> <a href="tel:+971589285102">+971-58-9285102</a>
                                 </div>
                             </div>
                             <div class="detail mail">

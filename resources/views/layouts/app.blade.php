@@ -2,16 +2,35 @@
 <html lang="{{Lang::locale()}}">
 <head>
 
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-    {{--<title>Supplier of Test &amp; Measurement Instruments in UAE</title>--}}
+        ym(93798272, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/93798272" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     <title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="">
     <meta name="yandex-verification" content="1eed189587ffd83f">
+    <!-- Open Graph -->
+    <meta property="og:title" content="@yield('title')">
+    <meta property="og:description" content="@yield('description')">
+    <meta property="og:url" content="{{ url()->full() }}">
+    <meta name="robots" content="index, follow">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ asset ('/css/bootstrap.css') }}">
     <!-- font-awesome css -->
@@ -40,10 +59,6 @@
     <link rel="icon" href="{{ asset ('/favicon.ico') }}" type="image/x-icon">
     <!-- Responsive -->
     <link rel="stylesheet" href="{{ asset ('/css/responsive.css') }}">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-    <!--[if lt IE 9]>
-    <script src="/assets/ddc9e813/js/respond.js"></script><![endif]-->
 
     <script type="text/javascript">
         var yupeTokenName = 'YUPE_TOKEN';
@@ -65,7 +80,6 @@
     @yield('styles')
 </head>
 <body class=" text-xl">
-<x-alerts></x-alerts>
 @include('homepage.header')
 @yield('content')
 <div class="primary-mobile-nav header-v1" id="primary-mobile-nav" role="navigation">
@@ -82,7 +96,6 @@
 
 <!-- jquery Liabrary -->
 <script src="{{ asset ('/js/jquery.min.js') }}"></script>
-<script src="{{ asset ('/js/jquery-1.12.4.min.js') }}"></script>
 <!-- bootstrap v3.3.6 js -->
 <script src="{{ asset ('/js/bootstrap.min.js') }}"></script>
 
@@ -113,7 +126,7 @@
             <div class="callBack__icon">
                 <img src="{{ asset ('/storage/icons/call.svg') }}" alt="call">
             </div>
-            <a href="tel:+971-58-9285102" class="callBack__phone">
+            <a href="tel:+971589285102" class="callBack__phone">
                 <img src="{{ asset ('/storage/icons/phoneicon.svg') }}" alt="phone">
             </a>
             <a href="https://wa.me/971589285102" class="callBack__whatsApp">
@@ -139,12 +152,6 @@
         phone.classList.toggle('active')
         whatsApp.classList.toggle('active')
         mail.classList.toggle('active')
-    }
-    const notification = document.querySelector('.notification');
-    const button = document.querySelector('.notification button');
-    button.onclick = function () {
-        console.log('bmbrmom')
-        notification.classList.toggle('received');
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation-cjs@1.0.0/dist/jquery.validate.min.js">

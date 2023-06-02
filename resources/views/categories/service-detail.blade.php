@@ -28,16 +28,16 @@
                                                 @foreach($products as $product)
                                                     <li class="product col-sm-6 col-xs-12 col-md-3 col-4">
                                                         <div class="product-inner">
-                                                            <a href="{{ $category->slug }}/{{$product->slug}}.html" class="woocommerce-loop-product__link">
+                                                            <a href="/store/{{ $category->slug }}/{{$product->slug}}.html" class="woocommerce-loop-product__link">
                                                                 <img src="{{$product->image}}" alt="{{$product->image_alt}}" title="{{$product->name}}" width="270" height="270">
                                                                 <span class="product-icon"><i class="fa fa-link"></i></span>
                                                             </a>
                                                             <div class="product-info">
-                                                                <h4><a href="{{ $category->slug }}/{{$product->slug}}.html"> {!! $product->name !!} </a></h4>
+                                                                <h4><a href="/store/{{ $category->slug }}/{{$product->slug}}.html"> {!! $product->name !!} </a></h4>
                                                                 <br>
                                                                 <p> {!! str_replace('Learn more...', '', $product->short_description ) !!} </p>
                                                                 <div class="product-footer">
-                                                                    <a href="{{ $category->slug }}/{{$product->slug}}.html" class="button product_type_simple add_to_cart_button ">More</a>
+                                                                    <a href="/store/{{ $category->slug }}/{{$product->slug}}.html" class="button product_type_simple add_to_cart_button ">More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
