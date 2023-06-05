@@ -5,6 +5,7 @@ namespace App\Services;
 
 use App\Models\Country;
 use App\Models\StoreCategory;
+use App\Models\StoreProducer;
 use App\Models\StoreProduct;
 
 class SiteMapService
@@ -13,7 +14,7 @@ class SiteMapService
     {
         $countries = Country::select(['code', 'name'])->get();
         $country = view('sitemaps.countrys', ['locations' => $countries]);
-        file_put_contents("sitemap-locations.xml", $country);
+        file_put_contents("sitemap/sitemap-locations.xml", $country);
         $data = StoreProduct::with([
             'category' => function ($query) {
                 $query->select('id', 'slug');
@@ -28,7 +29,19 @@ class SiteMapService
         }
         $productmap = view('sitemaps.products', ['links' => $links]);
         file_put_contents("sitemap/sitemap-products.xml", $productmap);
-        /*$sitemap = view('sitemaps.sitemap', ['links' => $links]);
-        file_put_contents("sitemap.xml", $sitemap);*/
+    }
+
+    public function createBrandsMap()
+    {
+        $brands = StoreProducer::select(['slug'])->whereHas('products')->get();
+        $data = view('sitemaps.brands', ['brands' => $brands]);
+        file_put_contents("sitemap/sitemap-brands.xml", $data);
+    }
+
+    public function createCategoriesMap()
+    {
+        $categories = StoreCategory::select(['slug'])->whereHas('products')->get();
+        $data = view('sitemaps.categories', ['categories' => $categories]);
+        file_put_contents("sitemap/sitemap-categories.xml", $data);
     }
 }

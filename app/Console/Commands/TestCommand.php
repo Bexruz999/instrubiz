@@ -30,7 +30,9 @@ class TestCommand extends Command
      */
     public function handle(ProductService $productService, SiteMapService $siteMapService)
     {
+        //$siteMapService->createCategoriesMap();
         $siteMapService->createProductsMap();
+        //$siteMapService->createBrandsMap();
         //$siteMapService->createSiteMap();
         //$productService->productBySlug('aim-tti-rm200a-rack-mount-kit');
     }

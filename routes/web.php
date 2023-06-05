@@ -36,6 +36,7 @@ Route::get('/store/{slug}', [CategoryController::class, 'category'])->name('Cate
 
 //Contacts routes
 Route::get('/contacts', [ContactsController::class, 'contacts'])->name('Contact us');
+Route::get('/sitemap', [ContactsController::class, 'sitemap'])->name('Contact us');
 
 //Product routes
 Route::get('/store', [ProductController::class, 'search'])->name('Store')->paginate();

@@ -232,12 +232,6 @@
     .footer-sidebar.footer-3 {
         clear: left;
     }
-    .woocommerce ul.products li.product.col-3:nth-child( 3n + 1) {
-        clear: none;
-    }
-    .woocommerce ul.products li.product:nth-child( 2n + 1) {
-        clear: left;
-    }
     .woocommerce ul.products li.product .product-footer {
         display: -webkit-box;
         display: -webkit-flex;

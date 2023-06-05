@@ -32,6 +32,9 @@
                                 <li class="listItem nav_item">
                                     <a class="listItemLink" href="/contacts">Contacts</a>
                                 </li>
+                                <li class="listItem nav_item">
+                                    <a class="listItemLink" href="/sitemap">Sitemap</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="clear"></div>

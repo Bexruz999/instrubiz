@@ -9,7 +9,7 @@
 @endsection
 
 @section('styles')
-    <meta property="og:image" content="https://instrubiz.ae/storage/{!!str_replace("\\","/",setting('site.logo'))!!}">
+    <meta property="og:image" content="{{ asset ('/img/logo.jpg?width=660&height=495&scale=upscalecanvas&bgcolor=fff') }}">
     <meta property="og:type" content="company">
     <link rel="canonical" href="{{ url('') }}"/>
 @endsection
