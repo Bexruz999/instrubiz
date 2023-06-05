@@ -1,14 +1,7 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <sitemap>
-        <loc>https://instrubiz.ae/sitemap-products.xml</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://instrubiz.ae/sitemap-categories.xml</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://instrubiz.ae/sitemap-locations.xml</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://instrubiz.ae/sitemap-brands.xml</loc>
-    </sitemap>
+    @foreach($countries as $country)
+        <sitemap>
+            <loc>https://{{ $country->code==='ae'?'':$country->code.'.' }}instrubiz.ae/{{ $country->code==='ae'?'':$country->code.'-' }}sitemap-products.xml</loc>
+        </sitemap>
+    @endforeach
 </sitemapindex>
