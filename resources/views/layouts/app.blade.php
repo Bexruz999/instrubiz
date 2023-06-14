@@ -81,7 +81,11 @@
 </head>
 <body class=" text-xl">
 @include('homepage.header')
+
+
 @yield('content')
+
+
 <div class="primary-mobile-nav header-v1" id="primary-mobile-nav" role="navigation">
     <a href="#" class="close-canvas-mobile-panel">×</a>
     <ul class="menu" id="yw3">

@@ -52,7 +52,8 @@ class ProductController extends Controller
                 'category' => $category,
                 'country' => $country,
                 'product' => $product['product'],
-                'similars' => $product['similars']
+                'similars' => $product['similars'],
+                'categories' => $product['categories'],
             ]);
         }
         return redirect('/store/categories');

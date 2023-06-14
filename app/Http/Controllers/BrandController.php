@@ -30,7 +30,6 @@ class BrandController extends Controller
         elseif ($subDomain === 'ae' || $subDomain === 'www' || $subDomain === 'om') {
         return redirect('https://instrubiz.ae/store/brands', 301);}
 
-
         $country = Country::whereCode($subDomain)->first();
         $char = $request->get('char');
         $brands = $this->brandService->index($char);

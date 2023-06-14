@@ -27,7 +27,6 @@ Route::get('/index.html', [HomeController::class, 'index'])->name('Home');
 
 //Brands routes
 Route::get('/store/brands', [BrandController::class, 'index'])->name('Brands')->paginate();
-//Route::get('/store/brands/page/{page_number}', [BrandController::class, 'index'])->name('BrandsPagination')->paginate();
 Route::get('/store/brand/{slug}', [BrandController::class, 'brand'])->name('Brands-page')->paginate();
 
 //Category routes

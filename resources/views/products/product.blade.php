@@ -17,7 +17,7 @@
                             </span>
                             <br>
                             <span><b>Manufacturer:</b>
-                                @if(Arr::get($product->producer, 'slug', null))
+                            @if(Arr::get($product->producer, 'slug', null))
                                     <a itemprop="brand" style="color: #0a6aa1 !important;font-weight: 800"
                                        href="/store/brand/{{ Arr::get($product->producer, 'slug', null) }}">{{$product->producer->name}}</a>
                                 @endif
@@ -26,16 +26,15 @@
                             <div itemprop="description" class="woocommerce-product-details__short-description">
                                 {!! str_replace('Learn more...', '', $product->short_description ) !!}
                                 <br>
-                                <h2 style="font-size: 18px;font-weight: 800">InstruBiz
-                                    is a leading supplier and reseller of Rice Lake Weighing Systems in
-                                    UAE, and we ship to all major cities such as Dubai &amp; Abu Dhabi
+                                <h2 style="font-size: 18px;font-weight: 800">
+                                    InstruBiz is a leading supplier and reseller of {{$product->producer->name}} in {{ $country->name }}, and we ship to all major cities such as {{ $country->shop_desc }}
                                 </h2>
                             </div>
 
                             <a href="mailto:inquiry@instrubiz.com" class="button">
                                 Request a Quote
                             </a>
-                            <a href="{{ setting('site.whatsapp') }}" class="button">
+                            <a href="{{ setting('site.whatsapp') }}?text=Hello, I want to order {{ $product->name }}" class="button">
                                 WhatsApp us
                             </a>
                         </div>
@@ -50,7 +49,7 @@
                             </ul>
                         </div>
                         <div class="panel-body">
-                            {!! $product->description !!}
+                            {!! preg_replace('#<div class="razzle-dazzle">[.\n\s\w<="/ ->]*</div>#', '</div>', $product->description) !!}
                         </div>
                     </div>
                     <link itemprop="availability" href="http://schema.org/InStock">
@@ -60,60 +59,20 @@
             <aside id="primary-sidebar" class="widgets-area primary-sidebar shop-sidebar col-xs-12 col-sm-12 col-md-3">
                 <div class="induscity-widget">
                     <div class="widget woocommerce widget_product_categories">
-                        <h4 class="widget-title">Brands</h4>
+                        <h4 class="widget-title">Categories</h4>
                         <ul class="product-categories">
-                            <li>
-                                <a href="https://instrubiz.ae/store/electronic-production-supplies-apparel">
-                                    <i class="fa fa-long-arrow-right"></i>Electronic Production Supplies, Apparel </a>
-                            </li>
-                            <li>
-                                <a href="https://instrubiz.ae/store/electronic-production-supplies-bottles-dispensers">
-                                    <i class="fa fa-long-arrow-right"></i>Electronic Production Supplies, Bottles &amp;
-                                    Dispensers </a>
-                            </li>
-                            <li>
-                                <a href="https://instrubiz.ae/store/electronic-production-supplies-chemicals-cleaning-abrasives">
-                                    <i class="fa fa-long-arrow-right"></i>Electronic Production Supplies, Chemicals,
-                                    Cleaning &amp; Abrasives </a>
-                            </li>
-                            <li>
-                                <a href="https://instrubiz.ae/store/electronic-production-supplies-cleanroom">
-                                    <i class="fa fa-long-arrow-right"></i>Electronic Production Supplies, Cleanroom </a>
-                            </li>
-                            <li>
-                                <a href="https://instrubiz.ae/store/electronic-production-supplies-electromechanical">
-                                    <i class="fa fa-long-arrow-right"></i>Electronic Production Supplies,
-                                    Electromechanical </a>
-                            </li>
-                            <li>
-                                <a href="https://instrubiz.ae/store/electronic-production-supplies-hand-power-tools">
-                                    <i class="fa fa-long-arrow-right"></i>Electronic Production Supplies, Hand &amp;
-                                    Power Tools </a>
-                            </li>
-                            <li>
-                                <a href="https://instrubiz.ae/store/electronic-production-supplies-labels-printers-paper-supplies">
-                                    <i class="fa fa-long-arrow-right"></i>Electronic Production Supplies, Labels,
-                                    Printers &amp; Paper Supplies </a>
-                            </li>
-                            <li>
-                                <a href="https://instrubiz.ae/store/electronic-production-supplies-networking-telecom-fiber">
-                                    <i class="fa fa-long-arrow-right"></i>Electronic Production Supplies, Networking,
-                                    Telecom &amp; Fiber </a>
-                            </li>
-                            <li>
-                                <a href="https://instrubiz.ae/store/electronic-production-supplies-power-management">
-                                    <i class="fa fa-long-arrow-right"></i>Electronic Production Supplies, Power
-                                    Management </a>
-                            </li>
-                            <li>
-                                <a href="https://instrubiz.ae/store/electronic-production-supplies-safety-supplies">
-                                    <i class="fa fa-long-arrow-right"></i>Electronic Production Supplies, Safety
-                                    Supplies </a>
-                            </li>
+                        @foreach ($categories as $producer)
+                                <li>
+                                    <a href="/store/{{ $producer->slug }}">
+                                        <i class="fa fa-long-arrow-right"></i>{!! $producer->name !!}</a>
+                                </li>
+                            @endforeach
+
                         </ul>
                     </div>
                 </div>
             </aside>
+
             <div id="primary" class="content-area col-md-9 col-sm-12 col-xs-12">
                 <br>
                 <h4>Similar products</h4>
@@ -130,12 +89,12 @@
 
                                 <div class="product-info">
                                     <h4>
-                                        <a href="/store/{{$category}}/{{$similar->slug}}.html">{!! $product->name !!}</a>
+                                        <a href="/store/{{$category}}/{{$similar->slug}}.html">{!! $similar->name !!}</a>
                                     </h4>
                                     <br>
                                     <p>{!! $similar->short_description !!}</p>
                                     <div class="product-footer">
-                                        <a href="/store/{{$category}}/{{$similar->slug}}.html" class="button product_type_simple add_to_cart_button ">More</a>
+                                        <a href="/store/{{$category}}/{{$similar->slug}}.html" class="btn btn-warning">More</a>
                                     </div>
                                 </div>
                             </div>
