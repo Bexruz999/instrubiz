@@ -6,17 +6,13 @@
             <div class="footer-sidebar footer-1 col-xs-12 col-sm-6 col-md-4">
                 <div class="widget_text widget">
                     <div class="textwidget">
-                        InstruBiz is in the business for over fifteen
-                        (15) years with the main office based in Dubai and branch offices in New
-                        York, Dublin (EU) and Karachi. Our unique presence in multiple markets
-                        allows us to procure goods at the best possible prices for our customers
-                        and deliver to their doorstep anywhere in the world.
+                        InstruBiz is Supplier and Reseller of Test and Measurement Instruments based in Dubai UAE. We provide best prices for Test and Measurement, Industrial and Laboratory instruments for Oil and Gas industry, and deliver to your door in {{ $slot }} including all taxes and duties.
                     </div>
                 </div>
             </div>
             <div class="footer-sidebar footer-2 col-xs-12 col-sm-6 col-md-4">
                 <div class="widget widget_mf-custom-menu">
-                    <h4 class="widget-title">Useful Links</h4>
+                    <p class="widget-title">Useful Links</p>
                     <div class="custom-menu-area">
                         <div class="custom-menu custom-menu-1">
                             <ul class="menu" id="yw2">
@@ -43,7 +39,7 @@
             </div>
             <div class="footer-sidebar footer-3 col-xs-12 col-sm-6 col-md-4">
                 <div class="widget_text widget">
-                    <h4 class="widget-title">Contact Details</h4>
+                    <p class="widget-title">Contact Details</p>
                     <div class="textwidget">
                         <div class="footer-widget-contact">
                             <div class="detail address">

@@ -1,19 +1,37 @@
 <div id="content" class="site-content woocommerce sidebar-content">
     <div class="container">
         <div class="row">
+
+            <aside id="primary-sidebar" class="widgets-area primary-sidebar shop-sidebar col-xs-12 col-sm-12 col-md-3">
+                <div class="induscity-widget">
+                    <div class="widget woocommerce widget_product_categories">
+                        <p class="widget-title">Categories</p>
+                        <ul class="product-categories">
+                            @foreach ($categories as $producer)
+                                <li>
+                                    <a href="/store/{{ $producer->slug }}">
+                                        <i class="fa fa-long-arrow-right"></i>{!! Arr::get($producer, 'name', 'undefined') !!}</a>
+                                </li>
+                            @endforeach
+
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
             <div id="primary" class="content-area col-md-9 col-sm-12 col-xs-12">
                 <div class="product" itemscope itemtype="http://schema.org/Product">
 
                     <div class="mf-product-details clearfix">
-                        <div class="product-image">
-                            <img src="{{ $product->image }}" class="product-gallery__main-img"
-                                 itemprop="image" alt="{{ $product->image_alt }}" title="{{ $product->name }}">
+                        <div class="product-image" style="position: relative">
+                            <img src="{{ $product->image }}" class="product-gallery__main-img" itemprop="image" alt="{{ $product->image_alt }}" title="{{ $product->name }}">
+                            <div style="width: calc(100% - 15px); height: 50px; background-color: #fff; position: absolute; bottom: 21px; border-radius: 0 0 3px 3px;"></div>
                         </div>
                         <div class="product-summary entry-summary">
                             <h2 itemprop="name" class="product_title entry-title">{{ "$product->name - $country->name" }} </h2>
                             <span><b>Category:</b>
                                 <a style="color: #0a6aa1 !important;font-weight: 800"
-                                   href="/store/{!! $category !!}">{!! $product->category->name !!}</a>
+                                   href="/store/{!! $product->category->slug !!}">{!! $product->category->name !!}</a>
                             </span>
                             <br>
                             <span><b>Manufacturer:</b>
@@ -24,10 +42,8 @@
                             </span>
 
                             <div itemprop="description" class="woocommerce-product-details__short-description">
-                                {!! str_replace('Learn more...', '', $product->short_description ) !!}
-                                <br>
                                 <h2 style="font-size: 18px;font-weight: 800">
-                                    InstruBiz is a leading supplier and reseller of {{$product->producer->name}} in {{ $country->name }}, and we ship to all major cities such as {{ $country->shop_desc }}
+                                    InstruBiz is a leading supplier and reseller of {{$producer->name}} in {{ $country->name }}, and we ship to all major cities such as {{ $country->shop_desc }}
                                 </h2>
                             </div>
 
@@ -39,7 +55,6 @@
                             </a>
                         </div>
                     </div>
-
                     <!--product tab-->
                     <div class="panel with-nav-tabs panel-default woocommerce-tabs">
                         <div class="panel-heading">
@@ -53,48 +68,58 @@
                         </div>
                     </div>
                     <link itemprop="availability" href="http://schema.org/InStock">
+                    <div itemprop="review" style="display: none" >
+                    </div>
+                    <div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
+                        <link itemprop="url" href="https://example.com/anvil" />
+                        <meta itemprop="availability" content="https://schema.org/InStock" />
+                        <meta itemprop="priceCurrency" content="USD" />
+                        <meta itemprop="itemCondition" content="https://schema.org/UsedCondition" />
+                        <meta itemprop="price" content="119.99" />
+                        <meta itemprop="priceValidUntil" content="2020-11-20" />
+                    </div>
+
+                    <div itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating" itemscope>
+                        <meta itemprop="reviewCount" content="89" />
+                        <meta itemprop="ratingValue" content="4.4" />
+                    </div>
+
+                    <div itemprop="review" itemtype="https://schema.org/Review" itemscope>
+
+                        <div itemprop="author" itemtype="https://schema.org/Person" itemscope>
+                            <meta itemprop="name" content="{{ $product->name }}" />
+                        </div>
+                        <div itemprop="reviewRating" itemtype="https://schema.org/Rating" itemscope>
+                            <meta itemprop="ratingValue" content="4" />
+                            <meta itemprop="bestRating" content="5" />
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
-            <aside id="primary-sidebar" class="widgets-area primary-sidebar shop-sidebar col-xs-12 col-sm-12 col-md-3">
-                <div class="induscity-widget">
-                    <div class="widget woocommerce widget_product_categories">
-                        <h4 class="widget-title">Categories</h4>
-                        <ul class="product-categories">
-                        @foreach ($categories as $producer)
-                                <li>
-                                    <a href="/store/{{ $producer->slug }}">
-                                        <i class="fa fa-long-arrow-right"></i>{!! $producer->name !!}</a>
-                                </li>
-                            @endforeach
-
-                        </ul>
-                    </div>
-                </div>
-            </aside>
 
             <div id="primary" class="content-area col-md-9 col-sm-12 col-xs-12">
                 <br>
-                <h4>Similar products</h4>
+                <p>Similar products</p>
                 <br>
                 <ul class="products service-dtail" id="slider">
                     @foreach($similars as $similar)
                         <li class="product" style="margin: 5px">
                             <div class="product-inner">
-
-                                <a href="/store/{{$category}}/{{$similar->slug}}.html" class="woocommerce-loop-product__link">
+                                <a href="/store/{{$product->category->slug}}/{{$similar->slug}}.html" class="woocommerce-loop-product__link">
                                     <img src="{{$similar->image}}" alt="{{$similar->image_alt}}" width="270" height="270">
                                     <span class="product-icon"><i class="fa fa-link"></i></span>
                                 </a>
 
                                 <div class="product-info">
-                                    <h4>
-                                        <a href="/store/{{$category}}/{{$similar->slug}}.html">{!! $similar->name !!}</a>
-                                    </h4>
+                                    <h3>
+                                        <a href="/store/{{$product->category->slug}}/{{$similar->slug}}.html">{!! $similar->name !!}</a>
+                                    </h3>
                                     <br>
                                     <p>{!! $similar->short_description !!}</p>
                                     <div class="product-footer">
-                                        <a href="/store/{{$category}}/{{$similar->slug}}.html" class="btn btn-warning">More</a>
+                                        <a href="/store/{{$product->category->slug}}/{{$similar->slug}}.html" class="btn btn-warning">More</a>
                                     </div>
                                 </div>
                             </div>
@@ -103,6 +128,7 @@
                 </ul>
                 <br />
             </div>
+
         </div>
     </div>
 </div>

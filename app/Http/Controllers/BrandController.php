@@ -27,7 +27,7 @@ class BrandController extends Controller
     {
         $subDomain = Arr::get(explode(".", $_SERVER['HTTP_HOST']), '0');
         if ($subDomain === 'instrubiz') {$subDomain = 'ae';}
-        elseif ($subDomain === 'ae' || $subDomain === 'www' || $subDomain === 'om') {
+        elseif ($subDomain === 'ae' || $subDomain === 'www') {
         return redirect('https://instrubiz.ae/store/brands', 301);}
 
         $country = Country::whereCode($subDomain)->first();
@@ -42,7 +42,7 @@ class BrandController extends Controller
     {
         $subDomain = Arr::get(explode(".", $_SERVER['HTTP_HOST']), '0');
         if ($subDomain === 'instrubiz') {$subDomain = 'ae';}
-        elseif ($subDomain === 'ae' || $subDomain === 'www' || $subDomain === 'om') {
+        elseif ($subDomain === 'ae' || $subDomain === 'www') {
         return redirect("https://instrubiz.ae/store/brand/$slug", 301);}
         $country = Country::whereCode($subDomain)->first();
         $data = $this->brandService->brandPage($slug);

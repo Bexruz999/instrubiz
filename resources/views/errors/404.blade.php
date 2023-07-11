@@ -33,5 +33,5 @@
             </div>
         </div>
     </div>
-    <x-footer></x-footer>
+    <x-footer>UAE</x-footer>
 @endsection

@@ -6,9 +6,10 @@
 
 @section('content')
 
-    <x-page-header>
+    <x-page-header></x-page-header>
 
-    </x-page-header>
     @include('products.site-content')
-    <x-footer></x-footer>
+
+    <x-footer>{{ $country->name }}</x-footer>
+
 @endsection

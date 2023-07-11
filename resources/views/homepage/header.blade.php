@@ -20,8 +20,7 @@
                                         <div class="header-contact mail">
                                             <div>
                                                 <a target="_blank" href="https://wa.me/971589285102">
-                                                    <h5>
-                                                        +971-58-9285102 </h5> Whatsapp us
+                                                    <p>+971-58-9285102 </p> Whatsapp us
                                                 </a>
                                             </div>
                                             <i class="fa fa-whatsapp"></i>
@@ -33,8 +32,8 @@
                                         <div class="header-contact mail">
                                             <div>
                                                 <a href="mailto:inquiry@instrubiz.com">
-                                                    <h5>
-                                                        inquiry@instrubiz.com </h5> Mail us
+                                                    <p>
+                                                        inquiry@instrubiz.com </p> Mail us
                                                 </a>
                                             </div>
                                             <i class="flaticon-note"></i>
@@ -46,7 +45,7 @@
                                         <div class="header-contact mail">
                                             <div>
                                                 <a href="tel:+971589285102">
-                                                    <h5>+971-58-9285102 </h5> Call us
+                                                    <p>+971-58-9285102 </p> Call us
                                                 </a>
                                             </div>
                                             <i class="flaticon-tool"></i>

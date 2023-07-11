@@ -5,7 +5,7 @@
 @endsection
 
 @section('description')
-    Buy {!! $product->name !!} and other {!! $product->category->name !!} at the best price in {!! $country->shop_desc !!} on Instrubiz
+    Buy {!! $product->name !!} and other {!! $product->category->name !!} at the best price in {!! $country->shop_desc !!} on Instrubiz | {{ Arr::get($producer, 'name', '') }} Supplier and Reseller in {!! $country->name !!}
 @endsection
 
 @section('styles')
@@ -31,7 +31,7 @@
         </div>
     </x-page-header>
     @include('products.product')
-    <x-footer></x-footer>
+    <x-footer>{{ $country->name }}</x-footer>
 @endsection
 
 @section('scripts')

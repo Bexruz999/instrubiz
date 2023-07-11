@@ -14,7 +14,7 @@ class ContactsController extends Controller
     {
         $subDomain = Arr::get(explode(".", $_SERVER['HTTP_HOST']), '0');
         if ($subDomain === 'instrubiz') {$subDomain = 'ae';}
-        elseif ($subDomain === 'ae' || $subDomain === 'www' || $subDomain === 'om') {
+        elseif ($subDomain === 'ae' || $subDomain === 'www') {
         return redirect('https://instrubiz.ae/contacts', 301);}
 
         $country = Country::whereCode($subDomain)->first();
@@ -25,7 +25,7 @@ class ContactsController extends Controller
     {
         $subDomain = Arr::get(explode(".", $_SERVER['HTTP_HOST']), '0');
         if ($subDomain === 'instrubiz') {$subDomain = 'ae';}
-        elseif ($subDomain === 'ae' || $subDomain === 'www' || $subDomain === 'om') {
+        elseif ($subDomain === 'ae' || $subDomain === 'www') {
         return redirect('https://instrubiz.ae/contacts', 301);}
 
         $countries = Country::get();

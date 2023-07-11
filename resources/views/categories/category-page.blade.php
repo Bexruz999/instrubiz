@@ -17,5 +17,5 @@
 @section('content')
 
     @include('categories.service-detail')
-    <x-footer></x-footer>
+    <x-footer>{{ $country->name }}</x-footer>
 @endsection

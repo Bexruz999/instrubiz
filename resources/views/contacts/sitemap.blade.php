@@ -27,5 +27,5 @@
         </div>
     </x-page-header>
     @include('contacts.sitemap-service')
-    <x-footer></x-footer>
+    <x-footer>{{ $country->name }}</x-footer>
 @endsection

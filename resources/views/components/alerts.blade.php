@@ -1,8 +1,8 @@
 @if ( session('status') )
     <div class="notification received">
-        <div class="notification__message message--info">
-            <p>{{setting('alert.' . session('status'), 'provident sed sequi soluta ut vitae! Ea facilis iusto provident.')}}</p>
-            <button aria-labelledby="button-dismiss">
+        <div class="notification__message message--info" style="display: flex; justify-content: space-between;">
+            <p style="margin: 0;">Successful</p>
+            <button id="butclose" aria-labelledby="button-dismiss">
                 <span id="button-dismiss" hidden>Dismiss</span>
                 <svg viewBox="0 0 100 100" width="10" height="10">
                     <g stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
@@ -13,6 +13,14 @@
         </div>
     </div>
 
+
+    <script>
+        let notification = document.getElementsByClassName('notification');
+        let button = document.getElementById('butclose');
+        button.addEventListener('click', function() {
+            notification[0].style.display = 'none';
+        });
+    </script>
     <style>
         /* display the wrapping container in the top right corner of the viewport */
         .notification {

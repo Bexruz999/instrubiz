@@ -26,8 +26,8 @@ class MailController extends Controller
         $message = Arr::get($request, 'message', 'no message');
         $phone = Arr::get($request, 'phone', 'no phone');
         $country = Country::whereCode($domain)->first();
-        Mail::to('bexruzfatullayev999@gmail.com')->send(new ContactShipped($validated, $message, $phone, $country->name));
+        Mail::to('inquiry@instrubiz.com')->send(new ContactShipped($validated, $message, $phone, $country->name));
 
-        return response('success');
+        return redirect()->back()->with('status', 'success');
     }
 }

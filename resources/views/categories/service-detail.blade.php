@@ -37,7 +37,7 @@
                                                                 <br>
                                                                 <p> {!! str_replace('Learn more...', '', $product->short_description ) !!} </p>
                                                                 <div class="product-footer">
-                                                                    <a href="/store/{{ $category->slug }}/{{$product->slug}}.html" class="button product_type_simple add_to_cart_button ">More</a>
+                                                                    <a href="/store/{{ $category->slug }}/{{$product->slug}}.html" class="btn btn-warning">More</a>
                                                                 </div>
                                                             </div>
                                                         </div>

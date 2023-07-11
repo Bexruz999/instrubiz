@@ -17,15 +17,13 @@ class HomeController extends Controller
 
     public function index()
     {
-        /*if ($_SERVER['REQUEST_URI'] !== '/') {
-            return redirect($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'], 301);
-        }*/
         $subDomain = Arr::get(explode(".", $_SERVER['HTTP_HOST']), '0');
+        $dm = $subDomain;
         if ($subDomain === 'instrubiz' ) {$subDomain = 'ae';}
-        elseif ($subDomain === 'ae' || $subDomain === 'www' || $subDomain === 'om') {
+        elseif ($subDomain === 'ae' || $subDomain === 'www') {
         return redirect('https://instrubiz.ae', 301);}
         $brands = $this->brandSerivce->home();
         $country = Country::whereCode($subDomain)->first();
-        return view('homepage.home', ['country' => $country , 'brands' => $brands]);
+        return view('homepage.home', ['country' => $country , 'brands' => $brands, 'subDomain' => $dm]);
     }
 }

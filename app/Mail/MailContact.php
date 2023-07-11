@@ -3,12 +3,13 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactShipped extends Mailable
+class MailContact extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,7 +18,7 @@ class ContactShipped extends Mailable
      *
      * @return void
      */
-    public function __construct(protected $request, protected $txt, protected $phone, protected $country)
+    public function __construct()
     {
         //
     }
@@ -30,7 +31,7 @@ class ContactShipped extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Inquiry Form',
+            subject: 'Mail Contact',
         );
     }
 
@@ -42,14 +43,7 @@ class ContactShipped extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.welcome',
-            with: [
-                'name' => $this->request['name'],
-                'email' => $this->request['email'],
-                'txt' => $this->txt,
-                'phone' => $this->phone,
-                'country' => $this->country
-            ]
+            view: 'view.name',
         );
     }
 

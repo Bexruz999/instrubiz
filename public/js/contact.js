@@ -35,7 +35,7 @@ $(function() {
                     }
                 }
             });
-            return false;
+            return true;
         }
     })
 });

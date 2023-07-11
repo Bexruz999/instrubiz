@@ -11,7 +11,7 @@
 @section('styles')
     <meta property="og:image" content="{{ asset ('/img/logo.jpg?width=660&height=495&scale=upscalecanvas&bgcolor=fff') }}">
     <meta property="og:type" content="company">
-    <link rel="canonical" href="{{ url('') }}"/>
+    {{--<link rel="canonical" href="{{ url('') }}"/>--}}
 @endsection
 
 @section('content')
@@ -28,5 +28,11 @@
     @include('homepage.sevice')
     @include('homepage.aboute')
     @include('forms.contactform')
-    <x-footer></x-footer>
+    <x-footer>{{ $country->name }}</x-footer>
+@endsection
+
+@section('scripts')
+    <script>
+        console.log('{{ $subDomain }} {{ $_SERVER['HTTP_HOST'] }}')
+    </script>
 @endsection

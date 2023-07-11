@@ -16,6 +16,7 @@
 
 @section('content')
 
+    <x-alerts></x-alerts>
     <x-page-header>
         <div class="container">
             <h1>CONTACT US</h1>
@@ -27,5 +28,5 @@
         </div>
     </x-page-header>
     @include('contacts.service')
-    <x-footer></x-footer>
+    <x-footer>{{ $country->name }}</x-footer>
 @endsection

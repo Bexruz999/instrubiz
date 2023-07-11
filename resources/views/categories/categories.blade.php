@@ -25,5 +25,5 @@
         </div>
     </x-page-header>
     @include('categories.service')
-    <x-footer></x-footer>
+    <x-footer>{{ $country->name }}</x-footer>
 @endsection

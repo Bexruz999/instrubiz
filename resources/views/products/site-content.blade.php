@@ -21,7 +21,7 @@
                                             <br>
                                             <p>{{ substr($product->short_description, 0, 50)  }}</p>
                                             <div class="product-footer">
-                                                <a href="/store/{{ $product->category->slug }}/{{ $product->slug }}.html" class="button product_type_simple add_to_cart_button ">More</a>
+                                                <a href="/store/{{ $product->category->slug }}/{{ $product->slug }}.html" class="btn btn-warning">More</a>
                                             </div>
                                         </div>
                                     </div>
